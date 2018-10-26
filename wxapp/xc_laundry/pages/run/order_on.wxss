@@ -1,0 +1,138 @@
+@import "../common/common.wxss";
+
+.order_nav {
+    background: #fff;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.nav_block {
+    height: 80rpx;
+}
+
+.order_nav>view {
+    flex: 1;
+    text-align: center;
+    padding: 20rpx 0;
+    margin: 0 40rpx;
+}
+
+.order .item {
+    margin-top: 10rpx;
+    background: #fff;
+    padding: 20rpx;
+}
+
+.order .item .item_top {
+    padding-bottom: 20rpx;
+}
+
+.order .item .middle_item {
+    display: flex;
+}
+
+.order .item .middle_item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+    margin-left: 10rpx;
+}
+
+.order .item .middle_item>view:nth-child(1) {
+    color: #aaaaaa;
+    width: 160rpx;
+}
+
+.order .item .middle_item>view:nth-child(2) {
+    flex: 1;
+}
+
+.order .item_middle {
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.order .middle_item+.middle_item {
+    margin-top: 10rpx;
+}
+
+.order .item .item_btn {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.order .item .item_btn>view:nth-child(1) {
+    flex: 1;
+    color: #aaaaaa;
+}
+
+.list .item .item_btn .order_status {
+    padding: 10rpx 40rpx;
+    background: #12b8f6;
+    color: #fff;
+    border-radius: 10rpx;
+}
+
+.list .item .item_btn .order_status+.order_status {
+    margin-left: 10rpx;
+}
+
+.code {
+    position: fixed;
+    top: 30%;
+    width: 100%;
+    padding: 0 20%;
+    box-sizing: border-box;
+    z-index: 99999;
+}
+
+.code canvas {
+    width: auto;
+    height: 60vw;
+    background: #fff;
+}
+
+.code icon {
+    position: absolute;
+    top: -100rpx;
+    right: 20%;
+}
+
+.menu {
+    box-sizing: border-box;
+    padding: 20rpx;
+    position: fixed;
+    width: 80%;
+    background: #fff;
+    top: 20vw;
+    left: 10%;
+    z-index: 999;
+    border-radius: 40rpx;
+}
+
+.menu .menu_title {
+    text-align: center;
+    padding: 20rpx;
+    font-size: 4.5vw;
+}
+
+.menu textarea {
+    border: #ddd 2rpx solid;
+    width: 100%;
+    margin: 20rpx 0;
+}
+
+.menu .menu_btn {
+    height: 80rpx;
+    margin: 40rpx 0 20rpx;
+    width: 100%;
+    text-align: center;
+    line-height: 80rpx;
+    color: #fff;
+    background: #aaa;
+}

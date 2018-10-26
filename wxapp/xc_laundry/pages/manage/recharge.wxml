@@ -1,0 +1,25 @@
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <view class="card">
+            <image src="../../resource/card03.png"></image>
+            <view class="tip1">NO:{{userinfo.card_id}}</view>
+            <view class="tip2">姓名：{{userinfo.name}}</view>
+            <view class="tip3">
+                <view>{{userinfo.money}}</view>
+                <view>余额</view>
+            </view>
+        </view>
+    </view>
+    <view class="top_block"></view>
+    <view class="list">
+        <input bindinput="input" data-name="amount" placeholder="请输入充值金额" placeholderStyle="color:#aaa;" type="number" value="{{amount}}"></input>
+        <view bindtap="recharge" class="btn">确认充值</view>
+        <view class="tip">注：充值前请仔细核对会员卡号和姓名</view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <input bindinput="input" data-name="mobile" placeholder="请输入会员手机号" placeholderStyle="color:#aaa;" type="number" value="{{mobile}}"></input>
+        <view class="menu_tip" wx:if="{{menu_error}}">请输入正确的信息</view>
+        <view bindtap="submit" class="menu_btn" style="background:{{theme.color}};">确 定</view>
+    </view>
+</view>

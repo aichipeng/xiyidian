@@ -1,0 +1,46 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view bindtap="menu_on" class="btn" data-edit="-1">+点击添加收货地址</view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_top">
+                <image src="../../resource/{{item.sex==1?'sex01':'sex02'}}.png"></image>
+                <view>
+                    <view>{{item.name}}</view>
+                    <view>地址：{{item.address}}</view>
+                </view>
+                <view class="mobile">{{item.mobile}}</view>
+            </view>
+            <view class="item_btn">
+                <icon bindtap="add_default" color="{{item.status==1?theme.color:'#aaaaaa'}}" data-index="{{idx}}" size="23" type="{{item.status==1?'success':'circle'}}"></icon>
+                <view style="color:{{item.status==1?theme.color:'#aaaaaa'}};">{{item.status==1?'默认地址':'设为默认地址'}}</view>
+                <view>
+                    <view bindtap="menu_on" data-edit="1" data-index="{{idx}}">编辑</view>
+                    <view bindtap="delete" data-index="{{idx}}">删除</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <icon bindtap="menu_close" color="black" size="23" type="cancel"></icon>
+        <view class="menu_item">
+            <input bindinput="input" data-name="name" placeholder="姓名/昵称" placeholderStyle="color:#aaaaaa;" type="text" value="{{name}}"></input>
+        </view>
+        <view class="menu_item">
+            <image bindtap="choose" data-index="1" src="../../resource/{{sex==1?'sex01':'sex001'}}.png"></image>
+            <view>性别</view>
+            <image bindtap="choose" data-index="2" src="../../resource/{{sex==2?'sex02':'sex002'}}.png"></image>
+        </view>
+        <view class="menu_item">
+            <input bindinput="input" data-name="mobile" placeholder="手机号码" placeholderStyle="color:#aaaaaa;" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="menu_item">
+            <input bindinput="input" data-name="address" placeholder="地址（填写区域得知即可）" placeholderStyle="color:#aaaaaa;" type="text" value="{{address}}"></input>
+            <image bindtap="map" class="map" src="{{theme.icon[2]}}"></image>
+        </view>
+        <view bindtap="confirm" class="menu_btn" style="background:{{submit?theme.color:''}}">确认并设为默认</view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo}}"></template>
+</view>

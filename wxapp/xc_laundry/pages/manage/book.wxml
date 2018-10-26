@@ -1,0 +1,53 @@
+<view class="page">
+    <view class="search" style="background:{{theme.color}};">
+        <view class="search_box">
+            <input bindinput="input" data-name="mobile" placeholder="请输入电话号码" placeholderStyle="color:#C9C9C9;" type="text" value="{{mobile}}"></input>
+            <icon bindtap="search" color="{{theme.color}}" size="20" type="search"></icon>
+        </view>
+    </view>
+    <view class="search_block"></view>
+    <view class="sign">
+        <view class="item">
+            <input bindinput="input" data-name="content" placeholder="备注" placeholderStyle="color:#aaa;" type="text" value="{{content}}"></input>
+        </view>
+        <view class="item">
+            <input disabled placeholder="会员卡号" placeholderStyle="color:#aaa;" type="text" value="{{card_id}}"></input>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="name" placeholder="姓名" placeholderStyle="color:#aaa;" type="text" value="{{name}}"></input>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="address" placeholder="地址" placeholderStyle="color:#aaa;" type="text" value="{{address}}"></input>
+            <image bindtap="map" src="{{theme.icon[2]}}"></image>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="total" placeholder="衣物数量" placeholderStyle="color:#aaa;" type="number" value="{{total}}"></input>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="amount" placeholder="金额" placeholderStyle="color:#aaa;" type="number" value="{{amount}}"></input>
+        </view>
+        <view class="item_choose">
+            <view>取衣方式</view>
+            <view class="choose">
+                <icon bindtap="choose" color="{{curr==1?theme.color:'#aaa'}}" data-index="1" size="23" type="{{curr==1?'success':'circle'}}"></icon>
+                <view>自取</view>
+            </view>
+            <view class="choose">
+                <icon bindtap="choose" color="{{curr==2?theme.color:'#aaa'}}" data-index="2" size="23" type="{{curr==2?'success':'circle'}}"></icon>
+                <view>配送</view>
+            </view>
+        </view>
+        <view class="item_choose">
+            <view>支付方式</view>
+            <view class="choose" wx:if="{{userinfo['money']}}">
+                <icon bindtap="pay_choose" color="{{pay_curr==1?theme.color:'#aaa'}}" data-index="1" size="23" type="{{pay_curr==1?'success':'circle'}}"></icon>
+                <view>会员卡(<text style="color:{{theme.color}};">{{userinfo['money']}}元</text>)</view>
+            </view>
+            <view class="choose">
+                <icon bindtap="pay_choose" color="{{pay_curr==2?theme.color:'#aaa'}}" data-index="2" size="23" type="{{pay_curr==2?'success':'circle'}}"></icon>
+                <view>现金</view>
+            </view>
+        </view>
+        <view bindtap="submit" class="item_btn" style="background:{{submit?theme.color:''}};">确认提交</view>
+    </view>
+</view>

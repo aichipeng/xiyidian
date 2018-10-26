@@ -1,0 +1,382 @@
+@import "../common/common.wxss";
+
+.nav {
+    background: #fff;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.nav_block {
+    height: 80rpx;
+}
+
+.nav>view {
+    flex: 1;
+    text-align: center;
+    padding: 20rpx 0;
+    margin: 0 80rpx;
+}
+
+.list {
+    background: #fff;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+}
+
+.list .order {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    position: relative;
+}
+
+.list .order .pay_type {
+    position: absolute;
+    top: 0;
+    left: -20rpx;
+    display: block;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.list .order+.order {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .order>view:nth-child(1) {
+    color: #FDA526;
+    padding-right: 10rpx;
+    border-right: #ddd 2rpx dashed;
+    width: 120rpx;
+}
+
+.list .order .order_content {
+    flex: 1;
+    margin-left: 10rpx;
+    width: 45vw;
+}
+
+.list .order .order_content .order_item {
+    display: flex;
+}
+
+.list .order .order_content .order_item>view:nth-child(1) {
+    color: #aaaaaa;
+}
+
+.list .order .order_content .order_item>view:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.list .order .order_btn {
+    background: #12B8F6;
+    color: #fff;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list .order .order_btn+.order_btn {
+    margin-left: 10rpx;
+}
+
+.list .item {
+    margin-top: 10rpx;
+    background: #fff;
+    padding: 20rpx;
+}
+
+.list .item .item_top {
+    padding-bottom: 20rpx;
+}
+
+.list .item .middle_item {
+    display: flex;
+}
+
+.list .item .middle_item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+    margin-left: 10rpx;
+}
+
+.list .item .middle_item>view:nth-child(1) {
+    color: #aaaaaa;
+    width: 160rpx;
+}
+
+.list .item .middle_item>view:nth-child(2) {
+    flex: 1;
+}
+
+.list .item_middle {
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.list .middle_item+.middle_item {
+    margin-top: 10rpx;
+}
+
+.list .item .item_btn {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.list .item .item_btn>view:nth-child(1) {
+    flex: 1;
+    color: #aaaaaa;
+}
+
+.list .item .item_btn .order_status {
+    padding: 10rpx 40rpx;
+    background: #12b8f6;
+    color: #fff;
+    border-radius: 10rpx;
+}
+
+.list .item .item_btn .order_status+.order_status {
+    margin-left: 10rpx;
+}
+
+.menu {
+    position: fixed;
+    width: 80%;
+    top: 20vw;
+    left: 10%;
+    background: #ffffff;
+    z-index: 999;
+    border-radius: 40rpx;
+    padding: 40rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.menu .menu_list {
+    margin-top: 20rpx;
+    height: 50vh;
+    overflow: scroll;
+}
+
+.menu .menu_item {
+    display: flex;
+    align-items: center;
+}
+
+.menu .menu_item+.menu_item {
+    margin-top: 10rpx;
+}
+
+.menu .menu_item>view:nth-child(1) {
+    flex: 1;
+    text-align: left;
+    color: #aaa;
+}
+
+.menu .menu_item icon {
+    display: flex;
+    align-items: center;
+}
+
+.menu>view:nth-child(3) {
+    margin-top: 20rpx;
+    background: #12B8F6;
+    color: #fff;
+    text-align: center;
+    padding: 10rpx;
+}
+
+.menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+
+.test {
+    position: fixed;
+    top: 10vw;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx;
+    z-index: 999;
+}
+
+.test .test_close {
+    position: absolute;
+    top: 60rpx;
+    right: 60rpx;
+    z-index: 9;
+}
+
+.test>image {
+    width: 100%;
+}
+
+.test .detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80rpx;
+}
+
+.test .detail>view:nth-child(1) {
+    text-align: center;
+    font-size: 5vw;
+    color: #12b8f6;
+    margin-bottom: 20rpx;
+}
+
+.test .detail .item {
+    display: flex;
+    color: #aaaaaa;
+}
+
+.test .detail .item>view:nth-child(2) {
+    flex: 1;
+}
+
+.test .detail .item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+
+.test .detail .item_content {
+    margin-top: 20rpx;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+    padding: 20rpx 0;
+    color: #aaaaaa;
+}
+
+.test .detail .item_content .flex {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.test .detail .tip {
+    margin-top: 20rpx;
+    color: #aaaaaa;
+}
+
+.test .detail .fast {
+    background: #fecb4b;
+    color: #fff;
+    display: inline-block;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+}
+
+.test .detail .detail_info {
+    height: 70vw;
+    overflow: scroll;
+}
+
+.test .detail .detail_btn {
+    padding: 20rpx;
+}
+
+.test .detail .detail_btn>view {
+    display: flex;
+}
+
+.test .detail .detail_btn .btn {
+    background: #12b8f6;
+    flex: 1;
+    color: #fff;
+    text-align: center;
+    margin: 0 20rpx;
+    border-radius: 10rpx;
+    padding: 10rpx 0;
+}
+
+.test_toast {
+    position: fixed;
+    width: 80%;
+    top: 30vw;
+    left: 10%;
+    background: #fff;
+    border-radius: 20rpx;
+    z-index: 999;
+    box-sizing: border-box;
+    padding: 40rpx;
+}
+
+.test_toast>.title {
+    font-size: 4.5vw;
+    text-align: center;
+    color: #aaaaaa;
+}
+
+.test_toast .btn {
+    background: #12b8f6;
+    font-size: 4vw;
+    color: #fff;
+    text-align: center;
+    margin: 20rpx 30%;
+    padding: 10rpx 0;
+    border-radius: 10rpx;
+}
+
+.test_toast>.menu_tip {
+    color: #FF7F00;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.test_toast .btn2 {
+    display: flex;
+}
+
+.test_toast .btn2>view {
+    background: #12b8f6;
+    color: #fff;
+    padding: 10rpx 0;
+    border-radius: 10rpx;
+    flex: 1;
+    text-align: center;
+    margin: 20rpx;
+}
+
+.test_toast .btn3 {
+    display: flex;
+    margin: 20rpx;
+}
+
+.test_toast .btn3 input {
+    border: #ddd 2rpx solid;
+    flex: 1;
+    border-radius: 10rpx;
+    height: 60rpx;
+}
+
+.test_toast .btn3>view {
+    background: #12b8f6;
+    padding: 10rpx 20rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 10rpx;
+    margin-left: 10rpx;
+}
+
+.test_toast .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

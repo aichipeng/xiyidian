@@ -1,0 +1,10 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="list">
+        <block wx:for="{{content}}" wx:for-index="idx" wx:key="idx">
+            <image mode="widthFix" src="{{item.content}}" wx:if="{{item.type==2}}"></image>
+            <view class="text" wx:if="{{item.type==1}}">{{item.content}}</view>
+        </block>
+    </view>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo}}"></template>
+</view>

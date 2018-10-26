@@ -1,0 +1,39 @@
+{
+    "pages": [
+        "xc_laundry/pages/base/base",
+        "xc_laundry/pages/index/index",
+        "xc_laundry/pages/service/service",
+        "xc_laundry/pages/order/order",
+        "xc_laundry/pages/order/detail",
+        "xc_laundry/pages/user/user",
+        "xc_laundry/pages/address/address",
+        "xc_laundry/pages/coupon/coupon",
+        "xc_laundry/pages/pay/pay",
+        "xc_laundry/pages/pay/pay2",
+        "xc_laundry/pages/message/message",
+        "xc_laundry/pages/public/public",
+        "xc_laundry/pages/manage/manage",
+        "xc_laundry/pages/manage/order",
+        "xc_laundry/pages/manage/order_on",
+        "xc_laundry/pages/manage/recharge",
+        "xc_laundry/pages/manage/book",
+        "xc_laundry/pages/run/run",
+        "xc_laundry/pages/run/order",
+        "xc_laundry/pages/run/order_on",
+        "xc_laundry/pages/test/test",
+        "xc_laundry/pages/about/about",
+        "xc_laundry/pages/card/card",
+        "xc_laundry/pages/card/card_on",
+        "xc_laundry/pages/card/edit",
+        "xc_laundry/pages/recharge/recharge",
+        "xc_laundry/pages/record/record",
+        "xc_laundry/pages/link/link",
+        "xc_laundry/pages/bind/bind"
+    ],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#000",
+        "backgroundColor": ""
+    }
+}

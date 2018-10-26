@@ -1,0 +1,24 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="list">
+        <navigator class="order" url="../order/detail?id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view>{{item.distance?item.distance+'km':'不明'}}</view>
+            <view class="order_content">
+                <view class="order_item">
+                    <view>时间：</view>
+                    <view>{{item.createtime}}</view>
+                </view>
+                <view class="order_item">
+                    <view>地址：</view>
+                    <view>{{item.userinfo.address}}</view>
+                </view>
+            </view>
+            <view catchtap="orders" class="order_btn" data-index="{{idx}}" data-orders="1" style="background:{{theme.color}};" wx:if="{{item.get_status==-1&&item.send_status==-1}}">接单</view>
+            <view catchtap="orders" class="order_btn" data-index="{{idx}}" data-orders="2" style="background:{{theme.color}};" wx:if="{{item.get_status==1&&item.send_status==-1}}">送单</view>
+            <image class="pay_type" src="../../resource/order01.png" wx:if="{{item.pay_type==2||item.pay_type==3}}"></image>
+            <image class="pay_type" src="../../resource/order02.png" wx:if="{{item.pay_type==1}}"></image>
+            <image class="pay_type" src="../../resource/order03.png" wx:if="{{item.pay_type==4}}"></image>
+        </navigator>
+    </view>
+    <template is="admin_footer" data="{{admin_footer:admin_footer,admin_footerCurr:admin_footerCurr,theme:theme}}"></template>
+</view>

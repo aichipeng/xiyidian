@@ -1,0 +1,107 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <swiper autoplay="{{autoplay}}" class="banner" duration="{{duration}}" indicatorActiveColor="{{theme.color}}" indicatorColor="#ffffff" indicatorDots="{{indicatorDots}}" interval="{{interval}}" wx:if="{{banner}}">
+        <swiper-item wx:for="{{banner}}" wx:key="idx">
+            <image bindtap="link" class="slide-image" data-link="{{item['link']}}" height="150" src="{{item.bimg}}" width="355"></image>
+        </swiper-item>
+    </swiper>
+    <view class="announcement" wx:if="{{announcement.content.status==1}}">
+        <image src="{{theme.icon[0]}}"></image>
+        <view style="color:{{theme.color}};">公告：</view>
+        <swiper autoplay="true" circular="true" class="swiper_container flex" interval="{{announcement.content.speed?announcement.content.speed:3000}}" vertical="true">
+            <swiper-item wx:for="{{announcement.content.list}}" wx:for-index="idx" wx:key="idx">
+                <view class="swiper_item">{{item}}</view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <scroll-view scrollX class="coupon" wx:if="{{coupon}}">
+        <view bindtap="setcoupon" class="item" data-index="{{idx}}" wx:for="{{coupon}}" wx:for-index="idx" wx:key="idx">
+            <image mode="widthFix" src="../../resource/coupon.png"></image>
+            <view>
+                <text class="price">{{item.name}}</text>元</view>
+            <view>全平台通用</view>
+            <view>满{{item.condition}}使用</view>
+            <view>{{item.user==1?'已领':'领取'}}</view>
+        </view>
+    </scroll-view>
+    <view class="service">
+        <view class="service_top" style="border-bottom-color:{{theme.color}};">
+            <view style="color:{{theme.color}};">请选择您的衣物分类</view>
+        </view>
+        <view class="service_list" wx:if="{{config.content.service_type!=2}}">
+            <navigator class="service_item" url="../service/service?&cid={{item.id}}" wx:for="{{class}}" wx:for-index="idx" wx:key="idx">
+                <image src="{{item.simg}}"></image>
+                <view>{{item.name}}</view>
+            </navigator>
+        </view>
+        <scroll-view scrollX class="service_list2" wx:if="{{config.content.service_type==2}}">
+            <navigator class="item" url="../service/service?&cid={{item.id}}" wx:for="{{class}}" wx:for-index="idx" wx:key="idx">
+                <image src="{{item.simg}}"></image>
+                <view>{{item.name}}</view>
+            </navigator>
+        </scroll-view>
+        <view bindtap="menu_on" class="service_btn" style="border-color:{{theme.color}};">
+            <view style="color:{{theme.color}};">一键预约</view>
+            <view>衣物到店后,由服务人员定价后再支付订单</view>
+        </view>
+    </view>
+    <view class="nav">
+        <navigator class="nav_item" url="../about/about?&xkey=about">
+            <image src="{{theme.icon[7]}}"></image>
+            <view>关于我们</view>
+        </navigator>
+        <navigator class="nav_item" url="../about/about?&xkey=area">
+            <image src="{{theme.icon[8]}}"></image>
+            <view>服务范围</view>
+        </navigator>
+        <navigator class="nav_item" url="../public/public">
+            <image src="{{theme.icon[9]}}"></image>
+            <view>服务价格</view>
+        </navigator>
+        <navigator class="nav_item" url="../message/message">
+            <image src="{{theme.icon[10]}}"></image>
+            <view>留言咨询</view>
+        </navigator>
+    </view>
+    <view class="copyright" wx:if="{{config['content']['copyright']}}">{{config['content']['copyright']}}</view>
+    <view class="menu" wx:if="{{menu_condition}}">
+        <view class="sign">
+            <icon bindtap="menu_close" class="sign_close" color="#000" type="cancel"></icon>
+            <view class="menu_tip">激活会员且余额不少于{{card.content.price?card.content.price:0}}元方可一键下单！</view>
+            <view class="menu_btn" style="color:{{theme.color}};">
+                <view bindtap="to_card" data-index="1">激活会员卡</view>
+                <view bindtap="to_card" data-index="2">会员卡充值</view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <form reportSubmit bindsubmit="submit" class="sign">
+            <icon bindtap="menu_close" class="sign_close" color="#000" type="cancel"></icon>
+            <view class="menu_item">
+                <image src="{{theme.icon[3]}}"></image>
+                <input bindinput="input" data-name="name" placeholder="姓名" placeholderStyle="color:#aaaaaa;" type="text" value="{{name}}"></input>
+                <input bindinput="input" data-name="mobile" placeholder="手机号" placeholderStyle="color:#aaaaaa;" type="number" value="{{mobile}}"></input>
+                <image bindtap="wx_address" src="{{theme.icon[1]}}"></image>
+            </view>
+            <view class="menu_item">
+                <image src="{{theme.icon[4]}}"></image>
+                <input bindinput="input" data-name="address" placeholder="请选择您的地址" placeholderStyle="color:#aaaaaa;" type="text" value="{{address}}"></input>
+                <image bindtap="map" src="{{theme.icon[2]}}"></image>
+            </view>
+            <view class="menu_item">
+                <image src="{{theme.icon[5]}}"></image>
+                <input bindinput="input" data-name="total" placeholder="衣物件数" placeholderStyle="color:#aaaaaa;" type="number" value="{{total}}"></input>
+            </view>
+            <view class="menu_item">
+                <image src="{{theme.icon[6]}}"></image>
+                <input bindinput="input" data-name="content" placeholder="备注（选填）" placeholderStyle="color:#aaaaaa;" type="text" value="{{content}}"></input>
+            </view>
+            <button class="sign_btn" formType="submit" style="background:{{submit?theme.color:'#aaa'}}" wx:if="{{area==1}}">提交预约</button>
+            <button class="sign_btn" style="background:#aaa" wx:if="{{area==-1}}">不在配送范围</button>
+            <view class="sign_tip">注：本单由店员确定价格后，电话告知您，费用直接从余额中扣除！</view>
+        </form>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo}}"></template>
+</view>

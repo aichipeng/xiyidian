@@ -1,0 +1,74 @@
+<view class="page">
+    <scroll-view scrollX class="nav">
+        <view bindtap="tab" class="nav_item" data-index="{{idx}}" wx:for="{{class}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{curr==idx?item['select_icon']:item['icon']}}"></image>
+            <view style="color:{{curr==idx?theme.color:''}};">{{item.name}}</view>
+        </view>
+    </scroll-view>
+    <view class="nav_block"></view>
+    <view class="list" wx:if="{{config.content.service_type!=2}}">
+        <view class="item" wx:for="{{class[curr]['list']}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.simg}}"></image>
+            <view>{{item.name}}</view>
+            <view>价格：<text class="price" style="color:{{theme.color}};">{{item.price}}</text>
+            </view>
+            <view class="flex-wap item_total">
+                <view bindtap="down" data-index="{{idx}}">-</view>
+                <view>{{item.total}}</view>
+                <view bindtap="up" data-index="{{idx}}" style="background:{{theme.color}};border-color:{{theme.color}};">+</view>
+            </view>
+        </view>
+    </view>
+    <view class="list2" wx:if="{{config.content.service_type==2}}">
+        <view class="item" wx:for="{{class[curr]['list']}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.simg}}"></image>
+            <view class="item_r">
+                <view>{{item.name}}</view>
+                <view>价格：<text class="price" style="color:{{theme.color}};">{{item.price}}</text>
+                </view>
+                <view class="flex-wap item_total">
+                    <view bindtap="down" data-index="{{idx}}">-</view>
+                    <view style="color:{{theme.color}};">{{item.total}}</view>
+                    <view bindtap="up" data-index="{{idx}}">+</view>
+                </view>
+            </view>
+            <view class="item_block"></view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_top">
+            <view>操作</view>
+            <view>衣物名称</view>
+            <view bindtap="menu_close">关闭</view>
+        </view>
+        <view class="menu_content">
+            <view class="item" wx:for="{{shop_list}}" wx:key="idx">
+                <icon bindtap="shop_del" color="#999" data-index="{{index}}" size="25" type="cancel"></icon>
+                <view class="item_c">
+                    <image src="{{item.simg}}"></image>
+                    <view class="item_cc">
+                        <view>{{item.name}}</view>
+                        <view>价格：<text style="color:{{theme.color}};">{{item.price}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="item_r">
+                    <view class="menu_num">
+                        <view bindtap="shop_down" data-index="{{index}}">—</view>
+                        <view>{{item.member}}</view>
+                        <view bindtap="shop_up" data-index="{{index}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_block"></view>
+    <view class="bottom">
+        <image bindtap="menu_on" src="{{theme.icon[11]}}"></image>
+        <view class="tip" style="color:{{theme.color}};">{{shop_amount.amount}}元</view>
+        <view bindtap="pay" style="background:{{theme.color}};">立即预约</view>
+        <view class="total" style="background:{{theme.color}};">{{shop_amount.total}}</view>
+    </view>
+</view>
+<toast icon="cancel" wx:if="{{toast}}">{{toast_text}}</toast>

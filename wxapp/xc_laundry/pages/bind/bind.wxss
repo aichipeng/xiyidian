@@ -1,0 +1,19 @@
+.list {
+    padding: 20rpx;
+    text-align: center;
+    color: #333;
+    font-size: 4.5vw;
+    background: #fff;
+}
+
+.btn {
+    margin: 30rpx;
+    background: #aaa;
+    color: #fff;
+    height: 100rpx;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5vw;
+}

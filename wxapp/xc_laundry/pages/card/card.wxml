@@ -1,0 +1,31 @@
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <view class="card">
+            <image src="{{card.content.card_on?card.content.card_on:'../../resource/card03.png'}}"></image>
+            <view class="tip1">NO: ****</view>
+            <view class="tip2">{{card.content.plan_date?card.content.plan_date:'有效期至：长期'}}</view>
+        </view>
+    </view>
+    <view class="top_block"></view>
+    <view bindtap="menu_on" class="btn" style="background:{{theme.color}};">立即激活</view>
+    <view class="ad" wx:if="{{card.content.use}}">
+        <view style="color:{{theme.color}};border-bottom-color:{{theme.color}};">会员卡使用说明</view>
+        <view class="content">
+            <view>{{card.content.use}}</view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <icon bindtap="menu_close" class="menu_close" color="#000" size="23" type="cancel"></icon>
+        <view class="menu_title" style="color:{{theme.color}};">会员绑定</view>
+        <input bindinput="input" data-name="mobile" placeholder="手机号码" placeholderStyle="color:#aaa;" type="number" value="{{mobile}}"></input>
+        <input bindinput="input" data-name="name" placeholder="姓名" placeholderStyle="color:#aaa;" type="text" value="{{name}}"></input>
+        <view class="item" wx:if="{{card.content.sms==1}}">
+            <input bindinput="input" data-name="code" placeholder="验证码" placeholderStyle="color:#aaa;" type="text" value="{{code}}"></input>
+            <view bindtap="getcode" class="flex" style="color:{{isload?'#aaa':theme.color}};text-align:center;">{{isload?'('+times+'s)':'获取验证码'}}</view>
+        </view>
+        <input bindinput="input" data-name="password" placeholder="会员卡支付密码(至少六位)" placeholderStyle="color:#aaa;" type="number" value="{{password}}"></input>
+        <view class="menu_tip" wx:if="{{menu_error}}">请输入正确的信息</view>
+        <view bindtap="submit" class="menu_btn" style="background:{{theme.color}};">确 定</view>
+    </view>
+</view>

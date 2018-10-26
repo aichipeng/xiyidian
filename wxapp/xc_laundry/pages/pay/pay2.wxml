@@ -1,0 +1,95 @@
+<view class="page">
+    <form reportSubmit bindsubmit="pay" class="list">
+        <view class="item">
+            <image src="{{theme.icon[3]}}"></image>
+            <input bindinput="input" data-name="name" placeholder="姓名" placeholderStyle="color:#aaaaaa;" type="text" value="{{name}}"></input>
+            <input bindinput="input" data-name="mobile" placeholder="手机号" placeholderStyle="color:#aaaaaa;" type="number" value="{{mobile}}"></input>
+            <image bindtap="wx_address" src="{{theme.icon[1]}}"></image>
+        </view>
+        <view class="item">
+            <image src="{{theme.icon[4]}}"></image>
+            <input bindinput="input" data-name="address" placeholder="请选择您的地址" placeholderStyle="color:#aaaaaa;" type="text" value="{{address}}"></input>
+            <image bindtap="map" src="{{theme.icon[2]}}"></image>
+        </view>
+        <view class="item" wx:if="{{config.content.times==1}}">
+            <image src="{{theme.icon[12]}}"></image>
+            <picker bindchange="bindDateChange" mode="date" value="{{date}}">
+                <view class="picker" wx:if="{{date}}">{{date}}</view>
+                <view class="picker" style="color:#aaaaaa;" wx:if="{{!date}}">取衣日期</view>
+            </picker>
+            <picker bindchange="bindTimeChange" mode="time" value="{{time}}">
+                <view class="picker" wx:if="{{time}}">{{time}}</view>
+                <view class="picker" style="color:#aaaaaa;" wx:if="{{!time}}">取衣时间</view>
+            </picker>
+        </view>
+        <view class="item">
+            <image src="{{theme.icon[6]}}"></image>
+            <input bindinput="input" data-name="content" placeholder="备注（选填）" placeholderStyle="color:#aaaaaa;" type="text" value="{{content}}"></input>
+        </view>
+        <view class="bottom">
+            <view style="color:{{theme.color}};">应付：<text>¥{{amount}}</text>
+            </view>
+            <button formType="submit" style="background:{{theme.color}};" wx:if="{{area==1}}">立即支付</button>
+            <button style="background:#aaa;" wx:if="{{area==-1}}">不在配送范围</button>
+        </view>
+    </form>
+    <view class="list">
+        <view class="item">
+            <view class="flex" style="color:#aaaaaa;">衣物件数</view>
+            <view class="price">{{total}}</view>
+        </view>
+        <view class="item">
+            <view class="flex" style="color:#aaaaaa;">商品金额</view>
+            <view class="price">¥{{goods_amount}}</view>
+        </view>
+        <view bindtap="coupon_choose" class="item">
+            <view class="flex" style="color:#aaaaaa;">优惠</view>
+            <view class="price">¥{{coupon_fee}}</view>
+            <view>></view>
+        </view>
+        <view class="item">
+            <view class="flex" style="color:#aaaaaa;">配送费</view>
+            <view class="price">¥{{fee}}</view>
+        </view>
+        <view class="item">
+            <view class="flex" style="color:#aaaaaa;"></view>
+            <view class="price">合计：¥{{amount}}</view>
+        </view>
+    </view>
+    <view class="menu">
+        <view>请选择您的支付方式:</view>
+        <view class="menu_content">
+            <view class="menu_item" style="margin-right:20rpx;">
+                <icon bindtap="payment" color="{{payment==2?theme.color:'#aaa'}}" data-pay="2" type="{{payment==2?'success':'circle'}}"></icon>
+                <view>余额支付（余额:<text class="price">{{userinfo['money']}}元</text>）</view>
+            </view>
+            <view class="menu_item flex">
+                <icon bindtap="payment" color="{{payment==1?theme.color:'#aaa'}}" data-pay="1" type="{{payment==1?'success':'circle'}}"></icon>
+                <view>微信支付</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_block"></view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu_coupon" wx:if="{{menu}}">
+        <view class="menu_title">店铺优惠</view>
+        <view bindtap="choose" class="menu_content" data-index="{{idx}}" wx:for="{{coupon_list}}" wx:for-index="idx" wx:key="idx">
+            <view>省{{item.name}}元：{{item.name}}元优惠</view>
+            <icon color="{{chooseCurr==idx?theme['color']:''}}" type="{{chooseCurr==idx?'success':'circle'}}"></icon>
+        </view>
+        <view bindtap="choose" class="menu_content" data-index="-1" style="align-items: center;">
+            <view>{{coupon_list.length==0?'没有可使用的优惠券':'不使用优惠'}}</view>
+            <icon color="{{chooseCurr==-1?theme['color']:''}}" style="flex:1;text-align:right;" type="{{chooseCurr==-1?'success':'circle'}}"></icon>
+        </view>
+        <view bindtap="coupon_close" class="menu_btn coupon" style="background:{{theme.color}};">关闭</view>
+    </view>
+    <view class="sign" wx:if="{{sign}}">
+        <view style="color:{{theme.color}};">支付密码</view>
+        <input bindinput="input" data-name="password" password="true" placeholder="请输入支付密码" placeholderStyle="color:#aaa" type="number" value="{{password}}"></input>
+        <view class="sign_tip" wx:if="{{sign_error}}">密码错误</view>
+        <view style='font-size:25rpx;color:#aaa;text-align:center;margin-top:30rpx;' >如没有设置密码 请到会员卡里设置密码</view>
+        <view bindtap="sign_btn" class="sign_btn" style="background:{{theme.color}};">确定</view>
+        <icon bindtap="sign_close" class="sign_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+</view>
+<toast icon="cancel" wx:if="{{toast}}">{{toast_text}}</toast>

@@ -1,0 +1,84 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <view>{{amount}}</view>
+        <view>总收入</view>
+    </view>
+    <view class="nav">
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{click}}</view>
+            <view>浏览量</view>
+        </view>
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{members}}</view>
+            <view>会员数量</view>
+        </view>
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{order}}</view>
+            <view>订单量</view>
+        </view>
+    </view>
+    <view class="nav2">
+        <navigator class="nav_item2" url="recharge">
+            <image src="../../resource/hycz.png"></image>
+            <view>会员充值</view>
+        </navigator>
+        <navigator class="nav_item2" url="book">
+            <image src="../../resource/syjz.png"></image>
+            <view>记账收银</view>
+        </navigator>
+    </view>
+    <view class="list">
+        <view class="title">
+            <view style="background:{{theme.color}};"></view>
+            <view>跑腿人绩效</view>
+            <view>
+                <text bindtap="tab" data-index="1" style="color:{{run_curr==1?theme.color:''}};">今天</text> | <text bindtap="tab" data-index="2" style="color:{{run_curr==2?theme.color:''}};">本月</text>
+            </view>
+        </view>
+        <view class="item" wx:for="{{run}}" wx:for-index="idx" wx:key="idx">
+            <view>跑腿人：{{item.name}}</view>
+            <view>单量：<text style="color:{{theme.color}};">{{item.total}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <navigator class="title" openType="reLaunch" url="order">
+            <view style="background:{{theme.color}};"></view>
+            <view>最新订单</view>
+            <view style="color:#aaaaaa;">订单中心></view>
+        </navigator>
+        <navigator class="order" url="../order/detail?id={{item.id}}" wx:for="{{order_list}}" wx:for-index="idx" wx:key="idx">
+            <view>{{item.distance?item.distance+'km':'不明'}}</view>
+            <view class="order_content">
+                <view class="order_item">
+                    <view>时间：</view>
+                    <view>{{item.createtime}}</view>
+                </view>
+                <view class="order_item">
+                    <view>地址：</view>
+                    <view>{{item.userinfo.address}}</view>
+                </view>
+            </view>
+            <view catchtap="menu_on" class="order_btn" data-index="{{idx}}" style="background:#aaa;">派单</view>
+            <view catchtap="orders" class="order_btn" data-index="{{idx}}" data-orders="1" style="background:{{theme.color}};" wx:if="{{item.get_status==-1&&item.send_status==-1}}">接单</view>
+            <view catchtap="orders" class="order_btn" data-index="{{idx}}" data-orders="2" style="background:{{theme.color}};" wx:if="{{item.get_status==1&&item.send_status==-1}}">送单</view>
+            <image class="pay_type" src="../../resource/order01.png" wx:if="{{item.pay_type==2||item.pay_type==3}}"></image>
+            <image class="pay_type" src="../../resource/order02.png" wx:if="{{item.pay_type==1}}"></image>
+            <image class="pay_type" src="../../resource/order03.png" wx:if="{{item.pay_type==4}}"></image>
+        </navigator>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view>请选择跑腿人</view>
+        <view class="menu_list">
+            <view bindtap="choose" class="menu_item" data-index="{{idx}}" wx:for="{{run_list}}" wx:for-index="idx" wx:key="idx">
+                <view>{{item.name}}</view>
+                <icon color="{{run_choose==idx?theme.color:'#aaa'}}" size="23" type="{{run_choose==idx?'success':'circle'}}"></icon>
+            </view>
+        </view>
+        <view bindtap="menu_btn" style="background:{{theme.color}};">确认派单</view>
+        <icon bindtap="menu_close" class="menu_close" color="#000" type="cancel"></icon>
+    </view>
+    <template is="admin_footer" data="{{admin_footer:admin_footer,admin_footerCurr:admin_footerCurr,theme:theme}}"></template>
+</view>

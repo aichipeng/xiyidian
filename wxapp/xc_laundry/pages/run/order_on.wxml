@@ -1,0 +1,63 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="order">
+        <view class="order_nav">
+            <view bindtap="tab" data-index="-1" style="color:{{curr==-1?theme.color:''}};border-bottom:{{curr==-1?theme.color+' 2rpx solid':''}};">全部</view>
+            <view bindtap="tab" data-index="1" style="color:{{curr==1?theme.color:''}};border-bottom:{{curr==1?theme.color+' 2rpx solid':''}};">待收件</view>
+            <view bindtap="tab" data-index="2" style="color:{{curr==2?theme.color:''}};border-bottom:{{curr==2?theme.color+' 2rpx solid':''}};">待送件</view>
+        </view>
+        <view class="nav_block"></view>
+        <view class="list">
+            <navigator class="item" url="../order/detail?id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+                <view class="item_top">
+                    <view class="middle_item">
+                        <view>下单时间：</view>
+                        <view>{{item.createtime}}</view>
+                    </view>
+                    <view class="middle_item">
+                        <view>订单号：</view>
+                        <view>{{item.out_trade_no}}</view>
+                    </view>
+                    <view class="middle_item">
+                        <view>订单状态：</view>
+                        <view>{{item.order_status}}</view>
+                    </view>
+                </view>
+                <view class="item_middle">
+                    <view class="middle_item">
+                        <view>预约地址：</view>
+                        <view>{{item.userinfo.address}}</view>
+                        <image catchtap="map" data-index="{{idx}}" src="{{theme.icon[24]}}"></image>
+                    </view>
+                    <view class="middle_item">
+                        <view>联系人：</view>
+                        <view>{{item.userinfo.name}} {{item.userinfo.mobile}}</view>
+                        <image catchtap="call" data-index="{{idx}}" src="{{theme.icon[25]}}"></image>
+                    </view>
+                </view>
+                <view class="item_btn">
+                    <view>件数：<text style="color:{{theme.color}};">{{item.total}}</text>
+                    </view>
+                    <view catchtap="order_cancel" class="order_status" data-index="{{idx}}" style="background:{{theme.color}};">取消订单</view>
+                    <view catchtap="order_change" class="order_status" data-id="{{idx}}" data-index="1" data-name="get_status" style="background:{{theme.color}};" wx:if="{{item.order_status=='收件中'&&item.get_status==-1}}">收件确认</view>
+                    <view class="order_status" style="background:#aaa;" wx:if="{{item.order_status=='收件中'&&item.get_status==1}}">已收件</view>
+                    <view catchtap="order_change" class="order_status" data-id="{{idx}}" data-index="1" data-name="send_status" style="background:{{theme.color}};" wx:if="{{item.order_status=='送件中'&&item.send_status==-1}}">送件确认</view>
+                    <view class="order_status" style="background:#aaa;" wx:if="{{item.order_status=='已完成'}}">已完成</view>
+                    <view catchtap="getcode" class="order_status" data-index="{{idx}}" style="background:{{theme.color}};">二维码</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="code" wx:if="{{code}}">
+        <canvas bindtap="previewImg" canvasId="mycanvas" hidden="{{canvasHidden}}"></canvas>
+        <icon bindtap="code_close" color="white" size="23" type="cancel"></icon>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{menu}}">
+        <view class="menu_title">取消备注</view>
+        <textarea bindinput="cancel_input" data-name="cancel_content" value="{{cancel_content}}"></textarea>
+        <view bindtap="cancel_btn" class="menu_btn" style="background:{{theme.color}};">提交</view>
+    </view>
+    <template is="admin_footer" data="{{admin_footer:admin_footer,admin_footerCurr:admin_footerCurr,theme:theme}}"></template>
+</view>

@@ -1,0 +1,80 @@
+.list {
+    background: #fff;
+    padding: 0 20rpx;
+}
+
+.list .item {
+    padding: 20rpx 0;
+    display: flex;
+    color: #858585;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+    margin-right: 10rpx;
+}
+
+.list .item>view:nth-child(2) {
+    flex: 1;
+}
+
+.edit {
+    background: #fff;
+    padding: 20rpx;
+    margin-top: 20rpx;
+}
+
+.edit>view:nth-child(1) {
+    font-size: 5vw;
+    color: #12b8f6;
+    text-align: center;
+    border-bottom: #ddd 2rpx solid;
+    padding-bottom: 20rpx;
+}
+
+.edit>view:nth-child(2) {
+    font-size: 5vw;
+    margin-top: 20rpx;
+}
+
+.edit .item {
+    display: flex;
+    margin-top: 20rpx;
+    align-items: center;
+}
+
+.edit .item>input {
+    border: #ddd 2rpx solid;
+    flex: 1;
+    height: 64rpx;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.edit .item>view {
+    border: #12b8f6 2rpx solid;
+    color: #12b8f6;
+    width: 200rpx;
+    justify-content: center;
+    height: 64rpx;
+    margin-left: 20rpx;
+    display: flex;
+    align-items: center;
+    border-radius: 10rpx;
+}
+
+.edit .btn {
+    margin-top: 20rpx;
+    background: #12b8f6;
+    text-align: center;
+    padding: 10rpx 0;
+    color: #fff;
+    border-radius: 10rpx;
+    font-size: 5vw;
+}

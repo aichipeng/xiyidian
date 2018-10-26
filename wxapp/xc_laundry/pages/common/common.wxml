@@ -1,0 +1,31 @@
+<template name="get_userinfo">
+    <view bindtap="user_close" class="shadow" wx:if="{{shadow}}"></view>
+    <view class="get_userinfo" wx:if="{{get_userinfo}}">
+        <view>请授权用户信息</view>
+        <view class="userinfo_btn">
+            <view bindtap="user_close" class="userinfo_b">取消</view>
+            <button bindgetuserinfo="updateUserInfo" bindtap="user_close" class="userinfo_b" openType="getUserInfo" size="mini">确定</button>
+        </view>
+    </view>
+</template>
+<template name="admin_footer">
+    <view class="footer_block"></view>
+    <view class="footer">
+        <navigator class="footer_item" openType="reLaunch" url="{{item.pagePath}}" wx:for="{{admin_footer}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{admin_footerCurr==idx?item.selectedIconPath:item.iconPath}}"></image>
+            <view style="color:{{admin_footerCurr==idx?theme.color:''}};">{{item.text}}</view>
+        </navigator>
+    </view>
+</template>
+<template name="footer">
+    <button class="customer_service" openType="contact" wx:if="{{config.content.online_status==1}}">
+        <image src="{{config.content.online_simg?config.content.online_simg:'../../resource/online.png'}}"></image>
+    </button>
+    <view class="footer_block"></view>
+    <view class="footer">
+        <navigator class="footer_item" openType="reLaunch" url="{{item.pagePath}}" wx:for="{{footer}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{footerCurr==idx?item.selectedIconPath:item.iconPath}}"></image>
+            <view style="color:{{footerCurr==idx?theme.color:''}};">{{item.text}}</view>
+        </navigator>
+    </view>
+</template>

@@ -1,0 +1,56 @@
+<view class="page">
+    <view class="list">
+        <view class="item" wx:if="{{type=='mobile'}}">
+            <image src="{{theme.icon[13]}}"></image>
+            <view>会员手机号</view>
+            <image bindtap="edit" src="{{theme.icon[23]}}"></image>
+        </view>
+        <view class="item" wx:if="{{type=='password'}}">
+            <image src="{{theme.icon[22]}}"></image>
+            <view>支付密码</view>
+            <image bindtap="edit" src="{{theme.icon[23]}}"></image>
+        </view>
+    </view>
+    <view class="edit" wx:if="{{type=='mobile'&&step1}}">
+        <view style="color:{{theme.color}};">会员手机号修改</view>
+        <view>{{userinfo.mobile}}</view>
+        <view class="item">
+            <input bindinput="input" data-name="code" type="text" value="{{code}}"></input>
+            <view bindtap="getcode">{{isload?'('+times+'s)':'获取验证码'}}</view>
+        </view>
+        <view bindtap="to_step" class="btn" style="background:{{theme.color}};">确 定</view>
+    </view>
+    <view class="edit" wx:if="{{type=='mobile'&&step2}}">
+        <view style="color:{{theme.color}};">会员手机号修改</view>
+        <view style="margin-top:0;"></view>
+        <view class="item">
+            <input bindinput="input" data-name="mobile" placeholder="请输入新的手机号码" placeholderStyle="color:#aaa;" type="text" value="{{mobile}}"></input>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="code" type="text" value="{{code}}"></input>
+            <view bindtap="getcode">{{isload?'('+times+'s)':'获取验证码'}}</view>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{theme.color}};">确 定</view>
+    </view>
+    <view class="edit" wx:if="{{type=='password'&&step1}}">
+        <view style="color:{{theme.color}};">会员卡支付密码修改</view>
+        <view>{{userinfo.mobile}}</view>
+        <view class="item">
+            <input bindinput="input" data-name="code" type="text" value="{{code}}"></input>
+            <view bindtap="getcode">{{isload?'('+times+'s)':'获取验证码'}}</view>
+        </view>
+        <view bindtap="to_step" class="btn" style="background:{{theme.color}};">确 定</view>
+    </view>
+    <view class="edit" wx:if="{{type=='password'&&step2}}">
+        <view style="color:{{theme.color}};">会员卡支付密码修改</view>
+        <view style="margin-top:0;"></view>
+        <view class="item" wx:if="{{card.content.sms==-1}}">
+            <input bindinput="input" data-name="old_password" placeholder="请输入旧的支付密码(至少六位)" placeholderStyle="color:#aaa;" type="number" value="{{old_password}}"></input>
+        </view>
+        <view class="item">
+            <input bindinput="input" data-name="password" placeholder="请输入新的支付密码(至少六位)" placeholderStyle="color:#aaa;" type="number" value="{{password}}"></input>
+        </view>
+        <view bindtap="submit" class="btn" style="background:{{theme.color}};">确 定</view>
+    </view>
+</view>
+<toast icon="cancel" wx:if="{{toast}}">{{toast_text}}</toast>

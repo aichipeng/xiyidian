@@ -1,0 +1,148 @@
+.nav {
+    display: flex;
+    background: #fff;
+    color: #9F9F9F;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+.nav>view {
+    flex: 1;
+    padding: 20rpx 0;
+    margin: 0 40rpx;
+    text-align: center;
+}
+
+.nav>view.curr {
+    border-bottom: #12b8f6 2rpx solid;
+    color: #12b8f6;
+}
+
+.nav_block {
+    height: 80rpx;
+}
+
+.list {
+    margin-top: 10rpx;
+    background: #fff;
+    padding: 20rpx 20rpx 0;
+}
+
+.list .item {
+    display: flex;
+}
+
+.list .item>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .info_item {
+    display: flex;
+    color: #aaaaaa;
+    padding: 20rpx 0;
+}
+
+.list .info_item+.info_item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .info_item>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .info_item>view:nth-child(2) {
+    color: #FF7F00;
+    font-size: 4vw;
+}
+
+.content {
+    margin-top: 10rpx;
+    padding: 20rpx;
+    display: flex;
+    background: #fff;
+}
+
+.content>view:nth-child(1) {
+    flex: 1;
+}
+
+.content>view:nth-child(2) {
+    color: #aaaaaa;
+}
+
+.userinfo {
+    background: #fff;
+    margin-top: 20rpx;
+}
+
+.userinfo .item {
+    display: flex;
+    padding: 20rpx;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.userinfo .item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+
+.userinfo .item>view {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.list .list_ld {
+    padding: 43rpx 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list .list_ld .yuan {
+    width: 20rpx;
+    height: 20rpx;
+    background: #aaaaaa;
+    border-radius: 100%;
+}
+
+.list .list_ld .yuan.curr {
+    background: #12b8f6;
+}
+
+.list .list_ld .line {
+    width: 2rpx;
+    height: 92rpx;
+    background: #aaaaaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list .list_ld .line.curr {
+    background: #12b8f6;
+}
+
+.list .list_rd {
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.list .list_rd .rd_item {
+    padding: 20rpx 0;
+    color: #ddd;
+    border-bottom: #ddd 2rpx dashed;
+}
+
+.list .list_rd .rd_item.curr {
+    color: #9F9F9F;
+}
+
+.list .list_rd .rd_item>view:nth-child(2) {
+    display: flex;
+    font-size: 3vw;
+    line-height: 4vw;
+}

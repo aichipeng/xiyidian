@@ -1,0 +1,260 @@
+.list {
+    background: #fff;
+    padding: 0 20rpx;
+    display: block;
+}
+
+.list+.list {
+    margin-top: 10rpx;
+}
+
+.list .item {
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.list .item+.item {
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+
+.list .item input,.list .item picker {
+    flex: 1;
+    padding: 0 20rpx;
+}
+
+.price {
+    color: #FF7F00;
+    font-size: 4.5vw;
+}
+
+.menu {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 20rpx;
+}
+
+.menu_content {
+    display: flex;
+    align-items: center;
+    color: #aaaaaa;
+    margin-top: 20rpx;
+}
+
+.menu .menu_content .menu_item {
+    display: flex;
+    align-items: center;
+}
+
+.menu .menu_content icon {
+    display: flex;
+    align-items: center;
+    margin-right: 10rpx;
+}
+
+.bottom_block {
+    height: 100rpx;
+}
+
+.bottom {
+    position: fixed;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    height: 100rpx;
+    align-items: center;
+}
+
+.bottom text {
+    font-size: 5vw;
+}
+
+.bottom>view:nth-child(1) {
+    color: #12b8f6;
+    flex: 1;
+    padding: 0 20rpx;
+}
+
+.bottom>button:nth-child(2) {
+    background: #12b8f6;
+    padding: 0 40rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 5vw;
+    line-height: inherit;
+    border-radius: 0;
+    border: none;
+}
+
+.bottom>button::after {
+    content: ' ';
+    border: none;
+    outline: none;
+    display: none;
+}
+
+.menu_coupon {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 9999;
+}
+
+.menu_coupon .menu_top {
+    padding: 20rpx;
+    position: relative;
+}
+
+.menu_coupon .menu_top>image {
+    width: 300rpx;
+    height: 200rpx;
+    box-sizing: border-box;
+    padding: 10rpx;
+    border-radius: 20rpx;
+    background: #fff;
+    position: absolute;
+    top: -60rpx;
+    left: 20rpx;
+}
+
+.menu_coupon .menu_top>view:nth-child(2) {
+    padding-left: 320rpx;
+    margin-top: 40rpx;
+}
+
+.menu_coupon .menu_top>view:nth-child(3) {
+    padding-left: 320rpx;
+    font-size: 3.5vw;
+    color: #999999;
+}
+
+.menu_coupon .menu_top>view:nth-child(4) {
+    position: absolute;
+    bottom: 20rpx;
+    right: 40rpx;
+    color: #999999;
+}
+
+.menu_coupon .menu_top .price {
+    color: #ff962c;
+    font-size: 6vw;
+}
+
+.menu_coupon .menu_top>icon {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+
+.menu_coupon .menu_content {
+    padding: 20rpx;
+    margin: 0 20rpx;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+    display: flex;
+    color: #999999;
+    align-items: center;
+}
+
+.menu_coupon .menu_content+.menu_content {
+    border-top: none;
+}
+
+.menu_coupon .menu_content>view:nth-child(2) {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu_coupon .menu_content .up,.down {
+    font-size: 6vw;
+}
+
+.menu_coupon .menu_content .num {
+    margin: 0 40rpx;
+}
+
+.menu_coupon .menu_btn {
+    background: #2eb758;
+    padding: 20rpx;
+    text-align: center;
+    color: #fff;
+    margin-top: 60rpx;
+}
+
+.menu_coupon .menu_title {
+    text-align: center;
+    padding: 20rpx;
+}
+
+.menu_coupon icon {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.sign {
+    position: fixed;
+    width: 80%;
+    background: #fff;
+    top: 20vw;
+    left: 10%;
+    z-index: 999;
+    border-radius: 40rpx;
+    padding: 40rpx 20rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.sign>view:nth-child(1) {
+    text-align: center;
+    font-size: 5vw;
+    color: #12b8f6;
+}
+
+.sign input {
+    flex: 1;
+    padding: 0 20rpx;
+    text-align: center;
+    border: #ddd 2rpx solid;
+    border-radius: 40rpx;
+    margin-top: 20rpx;
+}
+
+.sign .sign_btn {
+    background: #12b8f6;
+    color: #fff;
+    font-size: 5vw;
+    text-align: center;
+    padding: 10rpx 20rpx;
+    border-radius: 40rpx;
+    margin-top: 40rpx;
+    line-height: inherit;
+}
+
+.sign .sign_tip {
+    font-size: 3vw;
+    text-align: center;
+    color: red;
+}
+
+.sign .sign_close {
+    position: absolute;
+    top: 10rpx;
+    right: 20rpx;
+}

@@ -1,0 +1,209 @@
+@import "../common/common.wxss";
+
+.search {
+    background: #12b8f6;
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.search .search_box {
+    background: #fff;
+    display: flex;
+    border-radius: 10rpx;
+    width: 100%;
+}
+
+.search image {
+    width: 50rpx;
+    height: 50rpx;
+    display: block;
+    margin-right: 20rpx;
+}
+
+.search .search_box input {
+    flex: 1;
+    text-align: center;
+}
+
+.search .search_box icon {
+    display: flex;
+    align-items: center;
+    margin: 0 20rpx;
+}
+
+.search_block {
+    height: 100rpx;
+}
+
+.order {
+    padding: 20rpx;
+    position: relative;
+}
+
+.order>image {
+    width: 100%;
+}
+
+.order .detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80rpx;
+}
+
+.order .detail>view:nth-child(1) {
+    text-align: center;
+    font-size: 5vw;
+    color: #12b8f6;
+    margin-bottom: 20rpx;
+}
+
+.order .detail .item {
+    display: flex;
+    color: #aaaaaa;
+}
+
+.order .detail .item>view:nth-child(2) {
+    flex: 1;
+}
+
+.order .detail .item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+
+.order .detail .item_content {
+    margin-top: 20rpx;
+    border-top: #ddd 2rpx solid;
+    border-bottom: #ddd 2rpx solid;
+    padding: 20rpx 0;
+    color: #aaaaaa;
+}
+
+.order .detail .item_content .flex {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order .detail .tip {
+    margin-top: 20rpx;
+    color: #aaaaaa;
+}
+
+.order .detail .fast {
+    background: #fecb4b;
+    color: #fff;
+    display: inline-block;
+    padding: 0 20rpx;
+    border-radius: 10rpx;
+}
+
+.order .detail .detail_info {
+    height: 70vw;
+    overflow: scroll;
+}
+
+.order .detail .detail_btn {
+    padding: 20rpx;
+}
+
+.order .detail .detail_btn>view {
+    display: flex;
+}
+
+.order .detail .detail_btn .btn {
+    background: #12b8f6;
+    flex: 1;
+    color: #fff;
+    text-align: center;
+    margin: 0 20rpx;
+    border-radius: 10rpx;
+    padding: 10rpx 0;
+}
+
+.menu {
+    position: fixed;
+    width: 80%;
+    top: 30vw;
+    left: 10%;
+    background: #fff;
+    border-radius: 20rpx;
+    z-index: 999;
+    box-sizing: border-box;
+    padding: 40rpx;
+}
+
+.menu>view:nth-child(1) {
+    font-size: 4.5vw;
+    text-align: center;
+    color: #aaaaaa;
+}
+
+.menu .btn {
+    background: #12b8f6;
+    font-size: 4vw;
+    color: #fff;
+    text-align: center;
+    margin: 20rpx 30%;
+    padding: 10rpx 0;
+    border-radius: 10rpx;
+}
+
+.menu>view:nth-child(3) {
+    color: #FF7F00;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.menu .btn2 {
+    display: flex;
+}
+
+.menu .btn2>view {
+    background: #12b8f6;
+    color: #fff;
+    padding: 10rpx 0;
+    border-radius: 10rpx;
+    flex: 1;
+    text-align: center;
+    margin: 20rpx;
+}
+
+.menu .btn3 {
+    display: flex;
+    margin: 20rpx;
+}
+
+.menu .btn3 input {
+    border: #ddd 2rpx solid;
+    flex: 1;
+    border-radius: 10rpx;
+    height: 60rpx;
+}
+
+.menu .btn3>view {
+    background: #12b8f6;
+    padding: 10rpx 20rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 10rpx;
+    margin-left: 10rpx;
+}
+
+.menu .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

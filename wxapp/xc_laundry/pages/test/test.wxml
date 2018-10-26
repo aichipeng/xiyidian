@@ -1,0 +1,92 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="search" style="background:{{theme.color}};">
+        <image bindtap="scan" src="../../resource/icon19.png"></image>
+        <view class="search_box">
+            <input bindinput="input" data-name="search" placeholder="请输入订单号" placeholderStyle="color:#C9C9C9;" type="text" value="{{search}}"></input>
+            <icon bindtap="search" color="{{theme.color}}" size="20" type="search"></icon>
+        </view>
+    </view>
+    <view class="search_block"></view>
+    <view class="order" wx:if="{{list}}">
+        <image mode="widthFix" src="../../resource/order.png"></image>
+        <view class="detail">
+            <view style="color:{{theme.color}};">订单信息</view>
+            <view class="detail_info">
+                <view class="item">
+                    <view>订单号：</view>
+                    <view>{{list['out_trade_no']}}</view>
+                </view>
+                <view class="item">
+                    <view>联系人：</view>
+                    <view>{{list['userinfo']['name']}} {{list['userinfo']['mobile']}}</view>
+                    <image bindtap="call" src="{{theme.icon[25]}}"></image>
+                </view>
+                <view class="item_content" wx:if="{{list['pay_type']!=1}}">
+                    <view class="flex_wap" wx:for="{{list['service']}}" wx:for-index="idx" wx:key="idx">
+                        <view class="flex">{{item.name}}</view>
+                        <view class="flex">{{item.total}}</view>
+                        <view class="flex">{{item.price}}</view>
+                    </view>
+                </view>
+                <view class="item_content" wx:if="{{list['pay_type']==1}}">
+                    <view class="flex_wap">
+                        <view class="flex">衣物</view>
+                        <view class="flex">{{list['total']}}</view>
+                        <view class="flex"></view>
+                    </view>
+                </view>
+                <view class="flex_wap tip">
+                    <view class="flex">
+                        <text class="fast" wx:if="{{list['pay_type']==1}}">快单</text>
+                    </view>
+                    <view class="flex">件数：<text style="color:{{theme.color}};">{{list['total']}}</text>
+                    </view>
+                    <view class="flex">金额：<text style="color:{{theme.color}};">{{list['amount']?list['amount']:0}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="detail_btn">
+                <view>
+                    <view class="btn" style="background:#aaa;">收件确认</view>
+                    <view bindtap="test_btn" class="btn" data-index="1" style="background:{{list['service_status']==-1?theme.color:'#aaa'}};">检验确认</view>
+                </view>
+                <view style="margin-top:20rpx;">
+                    <view bindtap="test_btn" class="btn" data-index="2" style="background:{{list['pay_type']==1?theme.color:'#aaa'}};">定价扣款</view>
+                    <view bindtap="test_btn" class="btn" data-index="3" style="background:{{list['service_status']==1?theme.color:'#aaa'}};">服务完成</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" wx:if="{{btn1}}">
+        <view class="title">收件确认</view>
+        <view class="btn" style="background:{{theme.color}};">确认</view>
+        <view>注：请仔细核对衣物数量，如数量不对切勿确认</view>
+    </view>
+    <view class="menu" wx:if="{{btn2}}">
+        <view class="title">检验确认</view>
+        <view class="btn2">
+            <view bindtap="test_change" data-name="service_status" data-status="1" style="background:{{theme.color}};">正常服务</view>
+            <view bindtap="test_change" data-name="service_status" data-status="2" style="background:{{theme.color}};">异常退回</view>
+        </view>
+        <view class="menu_tip">注：发现衣物破损,致电客户后，点击异常退回</view>
+        <icon bindtap="menu_close" class="menu_close" color="#000" type="cancel"></icon>
+    </view>
+    <view class="menu" wx:if="{{btn3}}">
+        <view class="title">定价扣款</view>
+        <view class="btn3">
+            <input bindinput="input" data-name="test_amount" type="number" value="{{test_amount}}"></input>
+            <view bindtap="chargeback" style="background:{{theme.color}};">扣款</view>
+        </view>
+        <view class="menu_tip">注：扣款请确认已电话通知客户</view>
+        <icon bindtap="menu_close" class="menu_close" color="#000" type="cancel"></icon>
+    </view>
+    <view class="menu" wx:if="{{btn4}}">
+        <view class="title">服务完成</view>
+        <view bindtap="test_change" class="btn" data-name="service_status" data-status="3" style="background:{{theme.color}};">服务完成</view>
+        <view class="menu_tip">注：请务必检查衣物数量</view>
+        <icon bindtap="menu_close" class="menu_close" color="#000" type="cancel"></icon>
+    </view>
+    <template is="admin_footer" data="{{admin_footer:admin_footer,admin_footerCurr:admin_footerCurr,theme:theme}}"></template>
+</view>

@@ -1,0 +1,13 @@
+.list {
+    padding: 20rpx;
+    background: #fff;
+}
+
+.list image {
+    width: 100%;
+    margin-top: 20rpx;
+}
+
+.list .text {
+    text-indent: 2em;
+}

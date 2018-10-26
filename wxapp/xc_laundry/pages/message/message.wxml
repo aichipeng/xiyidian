@@ -1,0 +1,61 @@
+<view class="page">
+    <view class="nav" wx:if="{{contact}}">
+        <view bindtap="call" class="nav_item">
+            <image src="../../resource/icon15.png"></image>
+            <view>
+                <view>{{contact.content.mobile}}</view>
+                <view>{{contact.content.times}}</view>
+            </view>
+        </view>
+        <view bindtap="map" class="nav_item">
+            <image src="../../resource/icon16.png"></image>
+            <view>{{contact.content.address}}</view>
+        </view>
+    </view>
+    <view class="btn">
+        <button bindtap="online" style="background:{{theme.color}};">留言咨询</button>
+    </view>
+    <view class="message">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <image src="{{item.userinfo.avatar}}"></image>
+            <view class="item_content">
+                <view class="top">
+                    <view>{{item.userinfo.nick}}</view>
+                    <view>{{item.createtime}}</view>
+                </view>
+                <view>{{item.content}}</view>
+                <view class="reply" wx:if="{{item.reply}}">
+                    <view>回复：</view>
+                    <view>{{item.reply}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+    <view class="menu" hidden="{{!online}}">
+        <view class="menu_box">
+            <view class="top" style="color:{{theme.color}};">为方便我们更好的为您提供服务，请如实填写以下信息哦</view>
+            <form reportSubmit bindsubmit="submit" class="sign-form">
+                <view class="hb" style="align-items: center;">
+                    <view>姓名：</view>
+                    <input bindinput="input" data-name="name" type="text" value="{{name}}"></input>
+                    <image bindtap="wx" src="../../resource/icon13.png"></image>
+                </view>
+                <view class="hb" style="align-items: center;">
+                    <view>电话：</view>
+                    <input bindinput="input" data-name="mobile" type="text" value="{{mobile}}"></input>
+                </view>
+                <view class="hb">
+                    <view>内容：</view>
+                    <textarea bindinput="input" data-name="content" value="{{content}}"></textarea>
+                </view>
+                <button class="{{submit?'curr':''}}" formType="submit" style="background:{{submit?theme.color:''}};">提交</button>
+            </form>
+        </view>
+        <view class="line"></view>
+        <view class="close">
+            <icon bindtap="online_close" color="white" size="30" type="cancel"></icon>
+        </view>
+    </view>
+    <view class="shadow" wx:if="{{shadow}}"></view>
+</view>

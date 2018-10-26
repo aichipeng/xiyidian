@@ -1,0 +1,95 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <image src="{{userinfo.avatar}}"></image>
+        <view>{{userinfo.nick}}</view>
+    </view>
+    <view class="card {{userinfo.card==1?'card1':'card2'}}" style="background-image:url({{userinfo.card==1?card.content.card_on:card.content.card}});" wx:if="{{card.content.card_on&&card.content.card}}">
+        <view bindtap="to_card" class="tip1">{{userinfo.card==1?'设置':'立即激活'}}</view>
+        <view class="tip2">NO:{{userinfo.card==1?userinfo.card_id:''}}</view>
+        <view class="tip3">{{card.content.plan_date?card.content.plan_date:'有效期至：长期'}}</view>
+    </view>
+    <view class="card {{userinfo.card==1?'card1':'card2'}}" wx:if="{{!card.content.card_on||!card.content.card}}">
+        <view bindtap="to_card" class="tip1">{{userinfo.card==1?'设置':'立即激活'}}</view>
+        <view class="tip2">NO:{{userinfo.card==1?userinfo.card_id:''}}</view>
+        <view class="tip3">{{card.content.plan_date?card.content.plan_date:'有效期至：长期'}}</view>
+    </view>
+    <view class="nav">
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{coupon?coupon:0}}</view>
+            <view>优惠券(张)</view>
+        </view>
+        <view class="nav_item" style="border-left-color:{{theme.color}};">
+            <view style="color:{{theme.color}};">{{userinfo.money?userinfo.money:0}}</view>
+            <view>余额(元)</view>
+        </view>
+    </view>
+    <view class="list">
+        <navigator class="item" openType="reLaunch" url="../order/order">
+            <image src="{{theme.icon[16]}}"></image>
+            <view>我的订单</view>
+        </navigator>
+        <view bindtap="recharge" class="item">
+            <image src="{{theme.icon[17]}}"></image>
+            <view>会员充值</view>
+        </view>
+        <navigator class="item" url="../coupon/coupon">
+            <image src="{{theme.icon[18]}}"></image>
+            <view>优惠券</view>
+        </navigator>
+        <navigator class="item" url="../address/address">
+            <image src="{{theme.icon[19]}}"></image>
+            <view>我的地址</view>
+        </navigator>
+        <view bindtap="menu_on" class="item">
+            <image src="{{theme.icon[20]}}"></image>
+            <view>申请绑定</view>
+        </view>
+        <navigator class="item" url="../record/record">
+            <image src="{{theme.icon[26]}}"></image>
+            <view>账单</view>
+        </navigator>
+        <view bindtap="menu_on1" class="item">
+          <image src="{{theme.icon[20]}}"></image>
+          <view>绑定线下卡</view>
+        </view>
+    </view>
+    <view class="contact" wx:if="{{contact}}">
+        <view>服务热线：<text bindtap="call" style="color:{{theme.color}};">{{contact.content.mobile}}</text>
+        </view>
+        <view>服务时间：{{contact.content.times}}</view>
+    </view>
+    <!-- <view class="shadow" wx:if="{{shadow}}" bindtap="menu_close"></view> -->
+    <view class="menu" wx:if="{{menu}}">
+        <view>请输入员工信息</view>
+        <view class="menu_item">
+            <view>姓名：</view>
+            <input bindinput="input" data-name="name" type="text" value="{{name}}"></input>
+        </view>
+        <view class="menu_item">
+            <view>电话：</view>
+            <input bindinput="input" data-name="mobile" type="number" value="{{mobile}}"></input>
+        </view>
+        <view class="menu_item">
+            <view>密码：</view>
+            <input bindinput="input" data-name="password" password="true" type="text" value="{{password}}"></input>
+        </view>
+        <view bindtap="submit" class="menu_btn" style="background:{{submit?theme.color:''}};">确认添加</view>
+        <icon bindtap="menu_close" class="menu_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+     <view class="menu" wx:if="{{menu1}}">
+        <view>绑定会员卡</view>
+        <view class="menu_item">
+            <view>卡号：</view>
+            <input bindinput="input" data-name="cardnum" type="text" value="{{cardnum}}"></input>
+        </view>
+        <view class="menu_item">
+            <view>电话：</view>
+            <input bindinput="input" data-name="mobile1" type="number" value="{{mobile1}}"></input>
+        </view>
+        <view bindtap="submit_1" class="menu_btn" style="background:{{submit1?theme.color:''}};">确认添加</view>
+        <icon bindtap="menu_close" class="menu_close" color="#000" size="23" type="cancel"></icon>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo}}"></template>
+</view>

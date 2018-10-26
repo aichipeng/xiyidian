@@ -1,0 +1,196 @@
+@import "../common/common.wxss";
+
+.page .top {
+    background: #12B8F6;
+    text-align: center;
+    color: #8CDCFA;
+    padding: 20rpx;
+}
+
+.page .top>view:nth-child(1) {
+    color: #fff;
+    font-size: 8vw;
+    margin-bottom: 20rpx;
+}
+
+.nav {
+    background: #fff;
+    display: flex;
+}
+
+.nav .nav_item {
+    flex: 1;
+    text-align: center;
+    color: #aaaaaa;
+    padding: 20rpx 0;
+}
+
+.nav .nav_item>view:nth-child(1) {
+    color: #12B8F6;
+    font-size: 5vw;
+}
+
+.nav2 {
+    background: #fff;
+    margin-top: 20rpx;
+    display: flex;
+}
+
+.nav2 .nav_item2 {
+    flex: 1;
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav2 .nav_item2>image {
+    width: 50rpx;
+    height: 50rpx;
+    display: flex;
+    margin-right: 20rpx;
+}
+
+.list {
+    background: #fff;
+    margin-top: 10rpx;
+    padding: 0 20rpx;
+}
+
+.list .title {
+    padding: 20rpx 0;
+    display: flex;
+}
+
+.list .title>view:nth-child(1) {
+    width: 10rpx;
+    background: #12B8F6;
+    margin-right: 10rpx;
+}
+
+.list .title>view:nth-child(2) {
+    flex: 1;
+}
+
+.list .item {
+    display: flex;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+}
+
+.list .item>view:nth-child(1) {
+    flex: 1;
+}
+
+.list .order {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-top: #ddd 2rpx solid;
+    position: relative;
+}
+
+.list .order .pay_type {
+    position: absolute;
+    top: 0;
+    left: -20rpx;
+    display: block;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.list .order>view:nth-child(1) {
+    color: #FDA526;
+    padding-right: 10rpx;
+    border-right: #ddd 2rpx dashed;
+    width: 120rpx;
+}
+
+.list .order .order_content {
+    flex: 1;
+    margin-left: 10rpx;
+    width: 45vw;
+}
+
+.list .order .order_content .order_item {
+    display: flex;
+}
+
+.list .order .order_content .order_item>view:nth-child(1) {
+    color: #aaaaaa;
+}
+
+.list .order .order_content .order_item>view:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.list .order .order_btn {
+    background: #12B8F6;
+    color: #fff;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list .order .order_btn+.order_btn {
+    margin-left: 10rpx;
+}
+
+.menu {
+    position: fixed;
+    width: 80%;
+    top: 20vw;
+    left: 10%;
+    background: #ffffff;
+    z-index: 999;
+    border-radius: 40rpx;
+    padding: 40rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.menu .menu_list {
+    margin-top: 20rpx;
+    height: 50vh;
+    overflow: scroll;
+}
+
+.menu .menu_item {
+    display: flex;
+    align-items: center;
+}
+
+.menu .menu_item+.menu_item {
+    margin-top: 10rpx;
+}
+
+.menu .menu_item>view:nth-child(1) {
+    flex: 1;
+    text-align: left;
+    color: #aaa;
+}
+
+.menu .menu_item icon {
+    display: flex;
+    align-items: center;
+}
+
+.menu>view:nth-child(3) {
+    margin-top: 20rpx;
+    background: #12B8F6;
+    color: #fff;
+    text-align: center;
+    padding: 10rpx;
+}
+
+.menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

@@ -1,0 +1,131 @@
+.top {
+    background: #12b8f6;
+    position: relative;
+    height: 40vw;
+    color: #fff;
+}
+
+.top .card {
+    width: 90%;
+    top: 5vw;
+    left: 5%;
+    height: 45vw;
+    position: absolute;
+}
+
+.top .card>image {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.top .tip1 {
+    position: absolute;
+    bottom: 20rpx;
+    left: 40rpx;
+}
+
+.top .tip2 {
+    position: absolute;
+    right: 40rpx;
+    bottom: 20rpx;
+}
+
+.top_block {
+    height: 10vw;
+}
+
+.btn {
+    margin: 20rpx 30%;
+    background: #12b8f6;
+    color: #fff;
+    text-align: center;
+    font-size: 5vw;
+    padding: 20rpx 0;
+    border-radius: 80rpx;
+}
+
+.ad {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.ad>view:nth-child(1) {
+    color: #12b8f6;
+    text-align: center;
+    font-size: 4.5vw;
+    margin: 0 20%;
+    padding-bottom: 20rpx;
+    border-bottom: #12b8f6 2rpx solid;
+}
+
+.ad .content {
+    margin-top: 20rpx;
+    padding: 0 20rpx;
+    color: #aaa;
+}
+
+.menu {
+    position: fixed;
+    top: 30%;
+    width: 80%;
+    left: 10%;
+    background: #fff;
+    border-radius: 40rpx;
+    padding: 40rpx;
+    z-index: 999;
+    box-sizing: border-box;
+}
+
+.menu .menu_title {
+    text-align: center;
+    color: #12b8f6;
+    font-size: 4.5vw;
+}
+
+.menu>input {
+    border: #ddd 2rpx solid;
+    border-radius: 40rpx;
+    margin: 20rpx 60rpx 0;
+    text-align: center;
+}
+
+.menu .item {
+    display: flex;
+    margin: 20rpx 60rpx 0;
+    align-items: center;
+}
+
+.menu .item>input {
+    border: #ddd 2rpx solid;
+    border-radius: 40rpx;
+    text-align: center;
+    flex: 1;
+}
+
+.menu .item>view:nth-child(2) {
+    color: #12b8f6;
+    margin-left: 10rpx;
+}
+
+.menu .menu_btn {
+    background: #12b8f6;
+    margin: 20rpx 60rpx 0;
+    padding: 10rpx 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 40rpx;
+    font-size: 4.5vw;
+}
+
+.menu .menu_tip {
+    text-align: center;
+    margin-top: 10rpx;
+    color: red;
+}
+
+.menu .menu_close {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}

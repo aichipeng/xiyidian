@@ -1,0 +1,54 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" class="{{end==-1?'curr':''}}" data-index="-1" style="color:{{end==-1?theme.color:''}};border-bottom-color:{{end==-1?theme.color:''}}">全部订单</view>
+        <view bindtap="tab" class="{{end==1?'curr':''}}" data-index="1" style="color:{{end==1?theme.color:''}};border-bottom-color:{{end==1?theme.color:''}}">已完成</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list">
+        <navigator class="item" url="detail?&id={{item.id}}" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view class="item_hd">
+                <view class="item_content">
+                    <view class="top">
+                        <view>订单号：{{item.out_trade_no}}</view>
+                    </view>
+                    <view>下单日期：{{item.createtime}}</view>
+                    <view class="info">
+                        <view>接单人：</view>
+                        <view>衣物件数:<text class="price">{{item.total}}</text>
+                        </view>
+                        <view>金额<text class="price" wx:if="{{item.amount}}">¥{{item.amount}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view style="color:{{theme.color}};">></view>
+            </view>
+            <view class="item_bd">
+                <view catchtap="call">
+                    <image src="{{theme.icon[13]}}"></image>
+                    <view>联系商家</view>
+                </view>
+                <view wx:if="{{item.end==-1&&item.orders==-1&&item.service_status==-1&&item.get_status==-1&&item.send_status==-1&&item.cancel!=1}}">
+                    <image src="{{theme.icon[14]}}"></image>
+                    <view catchtap="del_order" data-index="{{idx}}">取消订单</view>
+                </view>
+                <view class="curr" wx:if="{{item.end!=-1||item.orders!=-1||item.service_status!=-1||item.get_status!=-1||item.send_status!=-1}}">
+                    <image src="{{theme.icon[14]}}"></image>
+                    <view>取消订单</view>
+                </view>
+                <view class="curr" wx:if="{{item.cancel==1}}">
+                    <image src="{{theme.icon[14]}}"></image>
+                    <view>已取消</view>
+                </view>
+                <view>
+                    <image src="{{theme.icon[15]}}"></image>
+                    <view wx:if="{{item.pay_type==1&&!item.amount}}">未支付</view>
+                    <view wx:if="{{item.amount}}">已支付</view>
+                </view>
+            </view>
+            <view class="item_tip" style="background:{{theme.color}};" wx:if="{{item.pay_type==1}}">一键下单</view>
+        </navigator>
+    </view>
+    <template is="footer" data="{{footer:footer,footerCurr:footerCurr,theme:theme,config:config}}"></template>
+    <template is="get_userinfo" data="{{shadow:shadow,get_userinfo:get_userinfo}}"></template>
+</view>

@@ -1,0 +1,105 @@
+@import "../common/common.wxss";
+
+.search {
+    background: #12b8f6;
+    width: 100%;
+    height: 100rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.search .search_box {
+    background: #fff;
+    display: flex;
+    border-radius: 10rpx;
+    width: 100%;
+}
+
+.search image {
+    width: 50rpx;
+    height: 50rpx;
+    display: block;
+    margin-right: 20rpx;
+}
+
+.search .search_box input {
+    flex: 1;
+    text-align: center;
+}
+
+.search .search_box icon {
+    display: flex;
+    align-items: center;
+    margin: 0 20rpx;
+}
+
+.search_block {
+    height: 100rpx;
+}
+
+.sign {
+    background: #fff;
+    padding: 0 20rpx 20rpx;
+    margin-top: 20rpx 0;
+}
+
+.sign .item {
+    padding: 20rpx 0;
+    border-bottom: #ddd 2rpx solid;
+    display: flex;
+    align-items: center;
+}
+
+.sign .item>input {
+    text-align: center;
+    flex: 1;
+}
+
+.sign .item>image {
+    width: 40rpx;
+    height: 40rpx;
+    display: block;
+}
+
+.sign .item_choose {
+    display: flex;
+    padding: 20rpx 0;
+    color: #999999;
+    border-bottom: #ddd 2rpx solid;
+}
+
+.sign .item_choose>view:nth-child(1) {
+    margin-right: 20rpx;
+}
+
+.sign .item_choose .choose {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.sign .item_choose .choose icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rpx;
+}
+
+.sign .item_btn {
+    height: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #aaa;
+    text-align: center;
+    color: #fff;
+    font-size: 4.5vw;
+    border-radius: 10rpx;
+    margin: 40rpx 0 20rpx;
+}

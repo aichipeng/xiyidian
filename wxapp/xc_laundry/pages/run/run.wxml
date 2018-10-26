@@ -1,0 +1,28 @@
+<import src="../common/common.wxml"></import>
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <image src="{{userinfo.avatar}}"></image>
+        <view>{{userinfo.name}}  {{userinfo.mobile}}</view>
+    </view>
+    <view class="nav">
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{userinfo.get_total}}</view>
+            <view>收件量</view>
+        </view>
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{userinfo.send_total}}</view>
+            <view>送件量</view>
+        </view>
+        <view class="nav_item">
+            <view style="color:{{theme.color}};">{{userinfo.amount}}</view>
+            <view>收入</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:for-index="idx" wx:key="idx">
+            <view>{{item.plan_date}}</view>
+            <view>+{{item.amount}}</view>
+        </view>
+    </view>
+    <template is="admin_footer" data="{{admin_footer:admin_footer,admin_footerCurr:admin_footerCurr,theme:theme}}"></template>
+</view>

@@ -1,0 +1,24 @@
+<view class="page">
+    <view class="top" style="background:{{theme.color}};">
+        <view class="card">
+            <image src="../../resource/card03.png"></image>
+            <view class="tip1">NO:{{userinfo.card_id}}</view>
+            <view class="tip2">{{card.content.plan_date?card.content.plan_date:'有效期至：长期'}}</view>
+            <view class="tip3">
+                <view>{{userinfo.money}}</view>
+                <view>余额</view>
+            </view>
+        </view>
+    </view>
+    <view class="top_block"></view>
+    <view class="list">
+        <view class="content">
+            <view bindtap="choose" class="item" data-index="{{idx}}" style="border-color:{{curr==idx?theme.color:' '}};" wx:for="{{card.content.recharge}}" wx:for-index="idx" wx:key="idx">
+                <view>{{item.r_price}}</view>
+                <view style="color:{{theme.color}};">赠{{item.g_price}}</view>
+            </view>
+        </view>
+        <!-- <input style='number' placeholder='输入充值金额'></input> -->
+        <view bindtap="submit" class="btn" style="background:{{theme.color}};">立即支付</view>
+    </view>
+</view>

@@ -1,0 +1,279 @@
+<view class="page">
+    <view class="nav">
+        <view bindtap="tab" class="{{curr==1?'curr':''}}" data-index="1" style="color:{{curr==1?theme.color:''}};border-bottom-color:{{curr==1?theme.color:''}}">订单状态</view>
+        <view bindtap="tab" class="{{curr==2?'curr':''}}" data-index="2" style="color:{{curr==2?theme.color:''}};border-bottom-color:{{curr==2?theme.color:''}}">订单详情</view>
+    </view>
+    <view class="nav_block"></view>
+    <view class="list flex_wap" style="padding:20rpx;" wx:if="{{curr==1}}">
+        <view class="list_ld">
+            <view class="yuan" style="background:{{list.step[0]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[1]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[1]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[2]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[2]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[3]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[3]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[4]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[4]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[5]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[5]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[6]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[6]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[7]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[7]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[8]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[8]?theme.color:''}};"></view>
+            <view class="line" style="background:{{list.step[9]?theme.color:''}};"></view>
+            <view class="yuan" style="background:{{list.step[9]?theme.color:''}};"></view>
+        </view>
+        <view class="list_rd" wx:if="{{list.pay_type!=1}}">
+            <view class="rd_item {{list.step[0]?'curr':''}}" style="color:{{step==0?theme.color:''}};">
+                <view>提交订单</view>
+                <view>
+                    <view class="flex">提交订单成功！</view>
+                    <view>{{list.step[0]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[1]?'curr':''}}" style="color:{{step==1?theme.color:''}};">
+                <view>待支付</view>
+                <view>
+                    <view class="flex">开通会员支付更优惠哦</view>
+                    <view>{{list.step[1]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[2]?'curr':''}}" style="color:{{step==2?theme.color:''}};">
+                <view>订单已支付</view>
+                <view>
+                    <view class="flex">订单已支付等待商家收件</view>
+                    <view>{{list.step[2]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[3]?'curr':''}}" style="color:{{step==3?theme.color:''}};">
+                <view>商家已接单</view>
+                <view>
+                    <view class="flex">请保持电话畅通，等待取件</view>
+                    <view>{{list.step[3]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[4]?'curr':''}}" style="color:{{step==4?theme.color:''}};">
+                <view>已取件</view>
+                <view>
+                    <view class="flex">取件人：{{list.get_name?list.get_name:''}}</view>
+                    <view>{{list.step[4]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[5]?'curr':''}}" style="color:{{step==5?theme.color:''}};">
+                <view>已到达店面</view>
+                <view>
+                    <view class="flex">衣物已到达店面，等待检验</view>
+                    <view>{{list.step[5]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[6]?'curr':''}}" style="color:{{step==6?theme.color:''}};">
+                <view>{{list.service_status==2?'异常退回':'服务中'}}</view>
+                <view>
+                    <view class="flex">{{list.service_status==2?'异常退回':'服务中'}}</view>
+                    <view>{{list.step[6]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[7]?'curr':''}}" style="color:{{step==7?theme.color:''}};">
+                <view>待送件</view>
+                <view>
+                    <view class="flex">送件人：{{list.send_name?list.send_name:''}}</view>
+                    <view>{{list.step[7]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[8]?'curr':''}}" style="color:{{step==8?theme.color:''}};">
+                <view>送件中</view>
+                <view>
+                    <view class="flex">送件人：{{list.send_name?list.send_name:''}}</view>
+                    <view>{{list.step[8]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[9]?'curr':''}}" style="color:{{step==9?theme.color:''}};">
+                <view>已完成</view>
+                <view>
+                    <view class="flex">送件人：{{list.send_name?list.send_name:''}}</view>
+                    <view>{{list.step[9]}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="list_rd" wx:if="{{list.pay_type==1}}">
+            <view class="rd_item {{list.step[0]?'curr':''}}" style="color:{{step==0?theme.color:''}};">
+                <view>提交订单</view>
+                <view>
+                    <view class="flex">提交订单成功！</view>
+                    <view>{{list.step[0]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[1]?'curr':''}}" style="color:{{step==1?theme.color:''}};">
+                <view>待接单</view>
+                <view>
+                    <view class="flex">请耐心等待，5分钟内确认订单</view>
+                    <view>{{list.step[1]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[2]?'curr':''}}" style="color:{{step==2?theme.color:''}};">
+                <view>商家已接单</view>
+                <view>
+                    <view class="flex">请保持电话畅通，等待取件</view>
+                    <view>{{list.step[2]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[3]?'curr':''}}" style="color:{{step==3?theme.color:''}};">
+                <view>已取件</view>
+                <view>
+                    <view class="flex">取件人：{{list.get_name?list.get_name:''}}</view>
+                    <view>{{list.step[3]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[4]?'curr':''}}" style="color:{{step==4?theme.color:''}};">
+                <view>已到达店面</view>
+                <view>
+                    <view class="flex">衣物已到达店面，等待检验</view>
+                    <view>{{list.step[4]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[5]?'curr':''}}" style="color:{{step==5?theme.color:''}};">
+                <view>定价扣款</view>
+                <view>
+                    <view class="flex">订价后电话通知确认后自动从余额中扣款</view>
+                    <view>{{list.step[5]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[6]?'curr':''}}" style="color:{{step==6?theme.color:''}};">
+                <view>{{list.service_status==2?'异常退回':'服务中'}}</view>
+                <view>
+                    <view class="flex">{{list.service_status==2?'异常退回':'服务中'}}</view>
+                    <view>{{list.step[6]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[7]?'curr':''}}" style="color:{{step==7?theme.color:''}};">
+                <view>待送件</view>
+                <view>
+                    <view class="flex">送件人：{{list.send_name?list.send_name:''}}</view>
+                    <view>{{list.step[7]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[8]?'curr':''}}" style="color:{{step==8?theme.color:''}};">
+                <view>送件中</view>
+                <view>
+                    <view class="flex">送件人：{{list.send_name?list.send_name:''}}</view>
+                    <view>{{list.step[8]}}</view>
+                </view>
+            </view>
+            <view class="rd_item {{list.step[9]?'curr':''}}" style="color:{{step==9?theme.color:''}};">
+                <view>已完成</view>
+                <view>
+                    <view class="flex">送件人：{{list.send_name?list.send_name:''}}</view>
+                    <view>{{list.step[9]}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{curr==2&&list.pay_type!=1}}">
+        <view class="item" wx:for="{{list['service']}}" wx:for-index="idx" wx:key="idx">
+            <view>{{item.name}}</view>
+            <view>数量：{{item.total}}</view>
+        </view>
+        <view class="info_item">
+            <view>衣物件数</view>
+            <view>{{list.total}}</view>
+        </view>
+        <view class="info_item">
+            <view>商品金额</view>
+            <view>¥{{list.goods_amount?list.goods_amount:0}}</view>
+        </view>
+        <view class="info_item">
+            <view>优惠</view>
+            <view>¥{{list.coupon_price?list.coupon_price:0}}</view>
+        </view>
+        <view class="info_item">
+            <view>配送费</view>
+            <view>¥{{list.fee?list.fee:0}}</view>
+        </view>
+        <view class="info_item">
+            <view></view>
+            <view>合计：¥{{list.amount}}</view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{curr==2&&list.pay_type!=1}}">
+        <view>支付方式</view>
+        <view wx:if="{{list.pay_type==2}}">余额支付</view>
+        <view wx:if="{{list.pay_type==3}}">微信支付</view>
+        <view wx:if="{{list.pay_type==4&&list.shop_pay==1}}">余额支付</view>
+        <view wx:if="{{list.pay_type==4&&list.shop_pay==2}}">现金支付</view>
+    </view>
+    <view class="userinfo" wx:if="{{curr==2&&list.pay_type!=1}}">
+        <view class="item">
+            <image src="{{theme.icon[3]}}"></image>
+            <view>{{list.userinfo.name}}  {{list.userinfo.mobile}}</view>
+        </view>
+        <view class="item">
+            <image src="{{theme.icon[4]}}"></image>
+            <view>{{list.userinfo.address}}</view>
+        </view>
+        <view class="item" wxLif="{{list.userinfo.date}}">
+            <image src="{{theme.icon[12]}}"></image>
+            <view>{{list.userinfo.date}}</view>
+        </view>
+        <view class="item" wx:if="{{list.userinf.content}}">
+            <image src="{{theme.icon[6]}}"></image>
+            <view>{{list.userinfo.content}}</view>
+        </view>
+    </view>
+    <view class="list" wx:if="{{curr==2&&list.pay_type==1}}">
+        <view class="info_item">
+            <view>衣物件数</view>
+            <view>{{list.total}}</view>
+        </view>
+        <view class="info_item">
+            <view>商品金额</view>
+            <view wx:if="{{list.amount}}">¥{{list.goods_amount?list.goods_amount:0}}</view>
+        </view>
+        <view class="info_item">
+            <view></view>
+            <view wx:if="{{list.amount}}">合计：¥{{list.amount}}</view>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{curr==2&&list.pay_type==1}}">
+        <view class="item">
+            <image src="{{theme.icon[3]}}"></image>
+            <view>{{list.userinfo.name}}  {{list.userinfo.mobile}}</view>
+        </view>
+        <view class="item">
+            <image src="{{theme.icon[4]}}"></image>
+            <view>{{list.userinfo.address}}</view>
+        </view>
+        <view class="item" wx:if="{{list.userinf.content}}">
+            <image src="{{theme.icon[6]}}"></image>
+            <view>{{list.userinfo.content}}</view>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{list.userinfo.content}}">
+        <view class="item">
+            <text>备注:</text>
+            <view>{{list.userinfo.content}}</view>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{curr==2}}">
+        <view class="item" wx:if="{{list.get_openid}}">
+            <text>收件人:</text>
+            <view>{{list.get_name}}  {{list.get_mobile}}</view>
+        </view>
+        <view class="item" wx:if="{{list.send_openid}}">
+            <text>送件人:</text>
+            <view>{{list.send_name}}  {{list.send_mobile}}</view>
+        </view>
+    </view>
+    <view class="userinfo" wx:if="{{list.cancel==1}}">
+        <view class="item">
+            <text>订单状态:</text>
+            <view>已取消</view>
+        </view>
+        <view class="item">
+            <text>取消备注:</text>
+            <view>{{list.cancel_content?list.cancel_content:''}}</view>
+        </view>
+    </view>
+</view>

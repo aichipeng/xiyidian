@@ -1,0 +1,8 @@
+<view class="page">
+    <view class="list">
+        <view>{{userinfo.money}}</view>
+        <view>现有余额</view>
+    </view>
+    <view bindtap="bind" class="btn" style="background:{{theme.color}};" wx:if="{{userinfo.bind==-1}}">绑定</view>
+    <view class="btn" wx:if="{{userinfo.bind==1}}">已绑定</view>
+</view>
